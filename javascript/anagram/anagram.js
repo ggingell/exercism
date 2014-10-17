@@ -4,7 +4,7 @@ var anagram = function(subject) {
 
 var Anagram = function(subject) {
   this.subject = subject.toLowerCase();
-  this.master = this.subject.split('').sort().join('','');
+  this.master = this.subject.split('').sort().join('');
 }
 
 Anagram.prototype.matches = function() {
