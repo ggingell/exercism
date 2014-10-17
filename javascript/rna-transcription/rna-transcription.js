@@ -1,30 +1,26 @@
 (function() {
 
+  var dnaToRna = {
+    'G': 'C',
+    'C': 'G',
+    'T': 'A',
+    'A': 'U'
+  };
+
   var toRna = function(sequence) {
 
     if(sequence && typeof sequence === 'string') {
       var rna = '',
-          seq = sequence.toUpperCase().split(''),
-          l = 0,
-          dnaToRna = {
-            'G': 'C',
-            'C': 'G',
-            'T': 'A',
-            'A': 'U'
-          };
+          seq = sequence.toUpperCase().split('');
 
-      while(l < seq.length) {
-        var s = seq[l];
+      seq.forEach(function(s) {
         
         if(dnaToRna.hasOwnProperty(s)) {
           rna += dnaToRna[s];
-          l++;
         } else {
-
           throw new InvalidNucleotideException(s);
-          break;
         }
-      }
+      });
     }
 
     return rna;
