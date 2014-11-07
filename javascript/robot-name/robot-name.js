@@ -2,11 +2,18 @@
   
   function Robot() {
 
-    this.name = getRandName();
+    var name = getRandName();
 
-    this.reset = function() {
-      this.name = getRandName();
-    }
+    return {
+      
+      reset: function() {
+        name = getRandName();
+      },
+
+      get name() {
+        return name;
+      }
+    };
 
     function getRandName() {
       var letters = getRandLetter() + getRandLetter();
